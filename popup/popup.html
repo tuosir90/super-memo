@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>备忘录</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-sticky-note"></i> 我的备忘录</h1>
+        
+        <!-- 添加备忘录部分 -->
+        <div class="add-section">
+            <textarea id="newMemo" placeholder="支持Markdown格式，输入新的备忘录内容..."></textarea>
+            <div class="preview-section">
+                <div id="previewContent" class="markdown-preview"></div>
+            </div>
+            <button id="addMemo">
+                <i class="fas fa-plus"></i> 添加备忘录
+            </button>
+        </div>
+
+        <!-- 搜索部分 -->
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="搜索备忘录...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <!-- 时间筛选部分 -->
+        <div class="time-filter-section">
+            <div class="date-range">
+                <div class="date-input">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input type="date" id="startDate" placeholder="开始日期">
+                </div>
+                <span class="date-separator">至</span>
+                <div class="date-input">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input type="date" id="endDate" placeholder="结束日期">
+                </div>
+            </div>
+            <button id="clearDateFilter">
+                <i class="fas fa-undo"></i> 清除筛选
+            </button>
+        </div>
+
+        <!-- 备忘录列表 -->
+        <div class="memo-list" id="memoList">
+            <!-- 空状态提示 -->
+            <div class="empty-state" id="emptyState">
+                <i class="fas fa-clipboard"></i>
+                <p>还没有任何备忘录，开始添加吧！</p>
+            </div>
+            <!-- 备忘录项会动态插入到这里 -->
+        </div>
+    </div>
+
+    <!-- 编辑模态框 -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2><i class="fas fa-edit"></i> 编辑备忘录</h2>
+            <textarea id="editMemoText"></textarea>
+            <div class="preview-section">
+                <div id="editPreviewContent" class="markdown-preview"></div>
+            </div>
+            <div class="modal-buttons">
+                <button id="saveEdit">
+                    <i class="fas fa-check"></i> 保存
+                </button>
+                <button id="cancelEdit">
+                    <i class="fas fa-times"></i> 取消
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../utils/crypto.js"></script>
+    <script src="../utils/storage.js"></script>
+    <script src="../utils/markdown.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html> 

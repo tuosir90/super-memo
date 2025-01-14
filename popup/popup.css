@@ -1,0 +1,505 @@
+/* 基础样式 */
+body {
+    width: 380px;
+    min-height: 500px;
+    margin: 0;
+    padding: 20px;
+    font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    color: #2c3e50;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    margin: 0 0 20px 0;
+    color: #2c3e50;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* 添加备忘录部分 */
+.add-section {
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+textarea#newMemo, textarea#editMemoText {
+    width: 100%;
+    height: 80px;
+    padding: 12px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    resize: vertical;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: "Consolas", monospace;
+}
+
+textarea#newMemo:focus, textarea#editMemoText:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Markdown预览部分 */
+.preview-section {
+    margin: 12px 0;
+    padding: 12px;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    background: #f8f9fa;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.empty-preview {
+    color: #95a5a6;
+    text-align: center;
+    font-style: italic;
+    margin: 0;
+    padding: 10px;
+}
+
+.error {
+    color: #e74c3c;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Markdown样式 */
+.markdown-preview {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #2c3e50;
+    overflow-wrap: break-word;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3,
+.markdown-preview h4,
+.markdown-preview h5,
+.markdown-preview h6 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.25;
+}
+
+.markdown-preview h1 { font-size: 20px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+.markdown-preview h2 { font-size: 18px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+.markdown-preview h3 { font-size: 16px; }
+.markdown-preview h4 { font-size: 15px; }
+.markdown-preview h5 { font-size: 14px; }
+.markdown-preview h6 { font-size: 13px; }
+
+.markdown-preview p {
+    margin: 0 0 12px 0;
+}
+
+.markdown-preview a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.markdown-preview a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.markdown-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 12px 0;
+    border: 1px solid #e1e8ed;
+}
+
+.markdown-preview code {
+    background-color: #f1f1f1;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 13px;
+    color: #e74c3c;
+}
+
+.markdown-preview pre {
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #e1e8ed;
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+.markdown-preview pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.markdown-preview blockquote {
+    margin: 12px 0;
+    padding: 8px 12px;
+    border-left: 4px solid #3498db;
+    background-color: #f8f9fa;
+    color: #34495e;
+}
+
+.markdown-preview ul,
+.markdown-preview ol {
+    margin: 12px 0;
+    padding-left: 24px;
+}
+
+.markdown-preview li {
+    margin: 4px 0;
+}
+
+.markdown-preview table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+.markdown-preview th,
+.markdown-preview td {
+    border: 1px solid #e1e8ed;
+    padding: 8px;
+    text-align: left;
+}
+
+.markdown-preview th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.markdown-preview tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* 任务列表样式 */
+.markdown-preview input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+/* 代码高亮主题优化 */
+.hljs {
+    background: #f8f9fa !important;
+    padding: 0 !important;
+}
+
+/* 搜索部分 */
+.search-section {
+    margin-bottom: 16px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* 备忘录列表 */
+.memo-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.memo-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.memo-content {
+    margin-bottom: 8px;
+    word-break: break-all;
+}
+
+.memo-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.memo-actions button {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.delete-btn:hover {
+    background-color: #da190b;
+}
+
+.edit-btn {
+    background-color: #2196F3;
+}
+
+.edit-btn:hover {
+    background-color: #0b7dda;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+#editMemoText {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* 搜索图标 */
+.search-section {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #95a5a6;
+    pointer-events: none;
+}
+
+/* 时间信息 */
+.memo-time {
+    font-size: 12px;
+    color: #95a5a6;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.memo-time i {
+    font-size: 14px;
+}
+
+/* 空状态样式 */
+.empty-state {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    color: #95a5a6;
+}
+
+.empty-state i {
+    margin-bottom: 16px;
+    color: #bdc3c7;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* 图标样式 */
+.fas {
+    margin-right: 6px;
+    font-size: 16px;
+}
+
+h1 .fas {
+    color: #f39c12;
+    font-size: 24px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #95a5a6;
+    pointer-events: none;
+}
+
+.empty-state .fas {
+    font-size: 48px;
+    color: #bdc3c7;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.memo-actions .fas {
+    margin-right: 4px;
+    font-size: 14px;
+}
+
+.memo-time .fas {
+    color: #95a5a6;
+    font-size: 14px;
+}
+
+/* 按钮样式 */
+button {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.delete-btn:hover {
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.edit-btn {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
+
+.edit-btn:hover {
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+/* 时间筛选部分 */
+.time-filter-section {
+    margin-bottom: 16px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.date-range {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.date-input {
+    flex: 1;
+    position: relative;
+}
+
+.date-input i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #95a5a6;
+}
+
+.date-input input[type="date"] {
+    width: 100%;
+    padding: 8px 8px 8px 32px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.date-input input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-left: 0;
+}
+
+.date-separator {
+    color: #95a5a6;
+    font-size: 14px;
+}
+
+#clearDateFilter {
+    width: 100%;
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    margin-top: 10px;
+}
+
+#clearDateFilter:hover {
+    box-shadow: 0 4px 12px rgba(149, 165, 166, 0.3);
+} 
